@@ -21,9 +21,6 @@ public class LoginPage {
         return driver.findElement(By.id("password"));
     }
 
-    public WebElement buttonLogin() {
-        return driver.findElement(By.name("login-button"));
-    }
 
     public void openPage() {
         driver.get("https://www.saucedemo.com/");
@@ -42,10 +39,6 @@ public class LoginPage {
         //buttonLogin().click();
     }
 
-    public void clickProductLinkTextSauceLabsBackpack() {
-        driver.findElement(By.linkText("Sauce Labs Backpack")).click();
-        //buttonLogin().click();
-    }
 
     public void close() {
         driver.close();

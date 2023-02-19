@@ -191,5 +191,26 @@ public class ProductsTests {
         productsPage.close();
 
     }
+    @Test
+    public void verifySortProductByNameZA_Array_TOcompare() {
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\Vladan\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        ChromeDriver driver = new ChromeDriver();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.openPage();
+        loginPage.setUserName("standard_user");
+        loginPage.setPassword("secret_sauce");
+        loginPage.clickLogin();
+
+        ProductsPage productsPage = new ProductsPage(driver);
+
+        productsPage.sortByName( "Name (Z to A)");
+        productsPage.ProductSortFromZA_toCompare();
+
+        Assert.assertEquals( productsPage.ProductSortFromZA_toCompare(), true, "Products are not sorted as expected, from Name (Z to A)");
+
+        productsPage.close();
+
+    }
 
 }

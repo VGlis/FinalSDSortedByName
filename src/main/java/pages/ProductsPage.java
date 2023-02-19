@@ -206,4 +206,55 @@ public class ProductsPage {
     }
 
 
+    public  boolean ProductSortFromAZ_toCompare() {
+            WebElement container = driver.findElement(By.id("inventory_container"));
+            List<WebElement> listInventoryItems = container.findElements(By.xpath(".//div[@class='inventory_item']"));
+            // storing input in variable
+            boolean toReturn = false;
+            int n = listInventoryItems.size();
+            List<String> AZ_Array_actual  = new ArrayList<>();
+
+            for (int i = 0; i < n; i++)
+            {
+                WebElement itemNames = listInventoryItems.get(i).findElement(By.xpath(".//div[@class='inventory_item_name']"));
+                AZ_Array_actual.add(itemNames.getText());
+            }
+
+          //  create string array called names
+            String actual[] = { "Sauce Labs Fleece Jacket",
+                    "Sauce Labs Backpack",
+                    "Sauce Labs Bolt T-Shirt",
+                    "Test.allTheThings() T-Shirt (Red)",
+                    "Sauce Labs Onesie",
+                    "Sauce Labs Bike Light" };
+        Arrays.sort(actual);
+
+        String[] names = AZ_Array_actual.toArray(String[]::new);
+            String temp;
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+
+                    // to compare one string with other strings
+                    if (names[i].compareTo(names[j]) > 0) {
+                        // swapping
+                        temp = names[i];
+                        names[i] = names[j];
+                        names[j] = temp;
+                    }
+                }
+            }
+        /* print output array*/
+        System.out.println("The names in alphabetical order are: ");
+        System.out.println("*******************************************");
+        System.out.println(actual);
+        for (int i = 0; i < n; i++) {
+            System.out.println(names[i]);
+
+            if (names[i].equals(actual[i])){
+                toReturn = true;
+            }
+        }
+        return toReturn;
+    }
+
 }

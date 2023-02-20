@@ -229,7 +229,7 @@ public class ProductsPage {
                     "Sauce Labs Bike Light" };
         Arrays.sort(actual);*/
         String[] actual = AZ_Array_actual.toArray(String[]::new);
-        Arrays.sort(actual);
+      //  Arrays.sort(actual);
         String[] names = AZ_Array_actual.toArray(String[]::new);
             String temp;
             for (int i = 0; i < n; i++) {
@@ -249,9 +249,11 @@ public class ProductsPage {
         System.out.println("*******************************************");
         System.out.println(actual);
         for (int i = 0; i < n; i++) {
-            System.out.println(names[i]);
+            System.out.println("*******************************************");
+            System.out.println("sort:" + names[i]);
 
             if (names[i].equals(actual[i])){
+                System.out.println("actual:" + actual[i]);
                 toReturn = true;
             }
         }
@@ -282,7 +284,7 @@ public class ProductsPage {
         Arrays.sort(actual);*/
 
         String[] actual = AZ_Array_actual.toArray(String[]::new);
-        Arrays.sort(actual, Collections.reverseOrder());
+      //  Arrays.sort(actual, Collections.reverseOrder());
         String[] names = AZ_Array_actual.toArray(String[]::new);
         String temp;
         for (int i = 0; i < n; i++) {
@@ -302,9 +304,11 @@ public class ProductsPage {
         System.out.println("*******************************************");
         System.out.println(actual);
         for (int i = 0; i < n; i++) {
-            System.out.println(names[i]);
+            System.out.println("*******************************************");
+            System.out.println("sort:" + names[i]);
 
             if (names[i].equals(actual[i])){
+                System.out.println("actual:" + actual[i]);
                 toReturn = true;
             }
         }
